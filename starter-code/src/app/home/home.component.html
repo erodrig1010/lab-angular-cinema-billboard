@@ -1,0 +1,3 @@
+<div *ngFor="let oneMovie of movies">
+  <h2><a [routerLink]="['movie', oneMovie.id]">{{oneMovie.title}}</a></h2>
+</div>
