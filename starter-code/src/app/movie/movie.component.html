@@ -1,7 +1,22 @@
-<h1>{{theMovie.title}}</h1>
-<h3>Directed by: {{theMovie.director}}</h3>
-<p>Genres: {{theMovie.genres}}</p>
-<p>Year: {{theMovie.year}}</p>
-<p>Actors: {{theMovie.actors}}</p>
-<img src="{{theMovie.poster}}" alt="{{theMovie.title}} poster image">
-<p>{{theMovie.synopsis}}</p>
+<div class="header">
+  <span><a [routerLink]="['/home']"><img src="https://www.ironhack.com/assets/shared/logo.svg" alt="Ironhack logo"></a></span>
+  <h2>CINEMA</h2>
+</div>
+
+<div class="theMovie">
+  
+  <div class="moviePoster">
+    <img src="{{theMovie.poster}}" alt="{{theMovie.title}} poster image">
+  </div>
+  
+  <div class="movieDetails">
+    <h2>{{theMovie.title}}</h2>
+    <h3>Room {{theMovie.room}}</h3>
+    <p><strong>Genres:</strong> {{theMovie.genres}}</p>
+    <p><strong>Year:</strong> {{theMovie.year}}</p>
+    <p><strong>Directed by:</strong> {{theMovie.director}}</p>
+    <p><strong>Actors:</strong> {{theMovie.actors}}</p>
+    <p><strong>Synopsis:</strong> {{theMovie.synopsis}}</p>
+  </div>
+
+</div> <!-- close theMovie class -->

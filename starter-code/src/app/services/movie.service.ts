@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
+// import { moviesArray } from '../../sample-movies';
 
 @Injectable()
 export class MovieService {
+    // moviesList:Array<any> = moviesArray;
+
     movieArray:Array<any> = [
       {
         id: 1,
@@ -132,7 +135,12 @@ export class MovieService {
       return this.movieArray;
     }
 
-    getMovie(id) {
-      return this.movieArray.find(movie => movie['id'] === parseInt(id));
+    getMovie(theId) {
+      const theMovie = this.movieArray.find((oneMovie) => {
+        return oneMovie.id === theId
+      });
+      return theMovie;
     }
+
+
 }

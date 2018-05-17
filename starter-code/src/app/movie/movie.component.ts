@@ -10,30 +10,30 @@ import { MovieService } from '../services/movie.service'
 
 export class MovieComponent implements OnInit {
 
-  theMovie:any = {
-    id: 0,
-    title: "",
-    poster: "",
-    synopsis: "",
-    genres: [],
-    year: 0,
-    director: "",
-    actors: [],
-    hours: [],
-    room: 0
-  };
+  theMovie:any = {};
 
   constructor(private route: ActivatedRoute,
     private movieService: MovieService) { }
 
+
   ngOnInit() {
 
+    // THIS WORKS!
+    // this.route.params
+    //   .subscribe((params) => {
+    //     const theID = (params['id'])
+    //     this.theMovie = this.movieService.movieArray.find((oneMovie) => {
+    //       return oneMovie.id === Number(theID);
+    //     });
+    //   });
+
+    // THIS ALSO WORKS!
     this.route.params
-      .subscribe((params) => {
-        const theID = (params['id'])
-        this.theMovie.id = theID;
-        this.theMovie = this.movieList.getMovie(this.movieId);
-        });
-      })
-  }
+    .subscribe((theParams) => {
+      const theID = Number(theParams['id']);
+      this.theMovie = this.movieService.getMovie(theID);
+    });
+
+  } //closes ngOnInit
+
 }

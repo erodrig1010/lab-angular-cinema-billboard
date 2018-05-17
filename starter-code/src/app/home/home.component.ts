@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../services/movie.service';
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -10,25 +10,27 @@ import { MovieService } from '../services/movie.service';
 })
 export class HomeComponent implements OnInit {
 
-    id: number;
-    title: string;
-    poster: string;
-    synopsis: string;
-    genres: Array<string>;
-    year: number;
-    director: string;
-    actors: Array<string>;
-    hours: Array<string>;
-    room: number;
+  // THIS SHOULD WORK BUT DOESNT
+  // allTheMovies: Array<any> = [];
 
-    movies = [];
+  movies:Array<any> = [];
 
-    
-  constructor(private route: ActivatedRoute,
-  public movieService: MovieService) { }
+
+  constructor(private movieService: MovieService, 
+    private myRouter: Router) { }
+
+
+  goToMoviePage(theIdArgument) {
+    this.myRouter.navigate(['/movie', theIdArgument]);
+  }
+
+
   ngOnInit() {
 
     this.movies = this.movieService.getMovies();
+    
+    // THIS SHOULD WORK BUT DOESNT
+    // this.allTheMovies = this.movieService.getMovies();
   }
 
 }
